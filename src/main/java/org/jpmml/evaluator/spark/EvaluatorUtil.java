@@ -54,6 +54,11 @@ public class EvaluatorUtil {
 
 		PMML pmml = JAXBUtil.unmarshalPMML(source);
 
+		return createEvaluator(pmml);
+	}
+
+	static
+	public Evaluator createEvaluator(PMML pmml) throws SAXException, JAXBException {
 		// If the SAX Locator information is available, then transform it to java.io.Serializable representation
 		LocatorTransformer locatorTransformer = new LocatorTransformer();
 		locatorTransformer.applyTo(pmml);
